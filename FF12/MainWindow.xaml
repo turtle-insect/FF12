@@ -1,0 +1,60 @@
+﻿<Window x:Class="FF12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FF12"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="500" Width="700">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open" Click="MenuItemFileOpen_Click"/>
+                    <MenuItem Header="_Save" Click="MenuItemFileSave_Click"/>
+                    <MenuItem Header="Save_As" Click="MenuItemFileSaveAs_Click"/>
+                    <Separator/>
+                    <MenuItem Header="_Import" Click="MenuItemFileImport_Click"/>
+                    <MenuItem Header="_Export" Click="MenuItemFileExport_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Exit" Click="MenuItemFileExit_Click"/>
+                </MenuItem>
+            </Menu>
+            <TabControl>
+                <TabItem Header="Basic">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="11*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="PlayTime"/>
+                        <TextBox Grid.Column="1" Text="{Binding PlayTime.Hour, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Column="2" Content="h"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PlayTime.Minute, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="1" Grid.Column="2" Content="m"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding PlayTime.Second, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="2" Grid.Column="2" Content="s"/>
+                        <Label Grid.Row="3" Content="Gil"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Gil, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>
