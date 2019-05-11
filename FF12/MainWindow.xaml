@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:FF12"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="500" Width="700">
+        AllowDrop="True" Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver"
+        Title="FF12 SaveEditor(Nintendo Switch)" Height="500" Width="700">
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
