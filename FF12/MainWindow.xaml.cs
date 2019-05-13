@@ -45,10 +45,20 @@ namespace FF12
 
 		private void MenuItemFileOpen_Click(object sender, RoutedEventArgs e)
 		{
+			FileOpen(false);
+		}
+
+		private void MenuItemFileOpenForce_Click(object sender, RoutedEventArgs e)
+		{
+			FileOpen(true);
+		}
+
+		private void FileOpen(bool force)
+		{
 			var dlg = new OpenFileDialog();
 			if (dlg.ShowDialog() == false) return;
 
-			if(SaveData.Instance().Open(dlg.FileName, false))
+			if (SaveData.Instance().Open(dlg.FileName, force))
 			{
 				DataContext = new ViewModel();
 			}
@@ -56,6 +66,7 @@ namespace FF12
 
 		private void MenuItemFileSave_Click(object sender, RoutedEventArgs e)
 		{
+			(DataContext as ViewModel)?.ItemCount();
 			SaveData.Instance().Save();
 		}
 
@@ -64,6 +75,7 @@ namespace FF12
 			var dlg = new SaveFileDialog();
 			if (dlg.ShowDialog() == false) return;
 
+			(DataContext as ViewModel)?.ItemCount();
 			SaveData.Instance().SaveAs(dlg.FileName);
 		}
 
@@ -86,6 +98,42 @@ namespace FF12
 		private void MenuItemFileExit_Click(object sender, RoutedEventArgs e)
 		{
 			Close();
+		}
+
+		private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
+		{
+			new AboutWindow().ShowDialog();
+		}
+
+		private void ButtonChoiceConsumable_Click(object sender, RoutedEventArgs e)
+		{
+			Item item = (sender as Button)?.DataContext as Item;
+			if (item == null) return;
+			ChoiceWindow dlg = new ChoiceWindow();
+			dlg.ID = item.ID;
+			dlg.ShowDialog();
+
+			if (dlg.ID == item.ID) return;
+
+			item.Count = 0;
+			item.ID = dlg.ID;
+			item.Count = 1;
+		}
+
+		private void ButtonChoiceWeapon_Click(object sender, RoutedEventArgs e)
+		{
+			Item item = (sender as Button)?.DataContext as Item;
+			if (item == null) return;
+			ChoiceWindow dlg = new ChoiceWindow();
+			dlg.Type = ChoiceWindow.eType.eWeapon;
+			dlg.ID = item.ID;
+			dlg.ShowDialog();
+
+			if (dlg.ID == item.ID) return;
+
+			item.Count = 0;
+			item.ID = dlg.ID;
+			item.Count = 1;
 		}
 	}
 }

@@ -95,8 +95,8 @@ namespace FF12
 			if (mFileName == null || mBuffer == null) return false;
 
 			uint crc = new Crc32().Calc(ref mBuffer, 8, 0x10200);
-			WriteNumber(0, 4, crc);
-			WriteNumber(0x10200, 4, crc);
+			//WriteNumber(0, 4, crc);
+			//WriteNumber(0x10200, 4, crc);
 			System.IO.File.WriteAllBytes(filename, mBuffer);
 			return true;
 		}

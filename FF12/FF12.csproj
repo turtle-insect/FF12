@@ -187,12 +187,25 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Charactor.cs" />
+    <Compile Include="ChoiceWindow.xaml.cs">
+      <DependentUpon>ChoiceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumableID2NameConverter.cs" />
     <Compile Include="Crc32.cs" />
+    <Compile Include="ILineAnalysis.cs" />
+    <Compile Include="Info.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="NameValueInfo.cs" />
     <Compile Include="PlayTime.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="ViewModel.cs" />
+    <Compile Include="WeaponID2NameConverter.cs" />
     <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChoiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

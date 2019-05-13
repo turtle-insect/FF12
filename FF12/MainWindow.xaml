@@ -16,14 +16,16 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Open" Click="MenuItemFileOpen_Click"/>
+                    <MenuItem Header="OpenForce" Click="MenuItemFileOpenForce_Click"/>
                     <MenuItem Header="_Save" Click="MenuItemFileSave_Click"/>
                     <MenuItem Header="Save_As" Click="MenuItemFileSaveAs_Click"/>
                     <Separator/>
                     <MenuItem Header="_Import" Click="MenuItemFileImport_Click"/>
-                    <MenuItem Header="_Export" Click="MenuItemFileExport_Click"/>
+                    <MenuItem Header="Export" Click="MenuItemFileExport_Click"/>
                     <Separator/>
-                    <MenuItem Header="Exit" Click="MenuItemFileExit_Click"/>
+                    <MenuItem Header="_Exit" Click="MenuItemFileExit_Click"/>
                 </MenuItem>
+                <MenuItem Header="_About" Click="MenuItemAbout_Click"/>
             </Menu>
             <TabControl>
                 <TabItem Header="Basic">
@@ -123,6 +125,46 @@
                             <TextBox Grid.Row="15" Grid.Column="1" Text="{Binding ElementName=ListBoxParty, Path=SelectedItem.Evade, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Grid>
+                </TabItem>
+                <TabItem Header="Item">
+                    <TabControl>
+                        <TabItem Header="Consumable">
+                            <ListBox ItemsSource="{Binding Consumable}">
+                                <ListBox.Resources>
+                                    <local:ConsumableID2NameConverter x:Key="ConsumableID2NameConverter"/>
+                                </ListBox.Resources>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="Count :"/>
+                                            <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                            <Label Content=" Name :"/>
+                                            <Button Content="..." Click="ButtonChoiceConsumable_Click"/>
+                                            <Label Content="{Binding ID, Converter={StaticResource ConsumableID2NameConverter}}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </TabItem>
+                        <TabItem Header="Weapon">
+                            <ListBox ItemsSource="{Binding Weapon}">
+                                <ListBox.Resources>
+                                    <local:WeaponID2NameConverter x:Key="WeaponID2NameConverter"/>
+                                </ListBox.Resources>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="Count :"/>
+                                            <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                            <Label Content=" Name :"/>
+                                            <Button Content="..." Click="ButtonChoiceWeapon_Click"/>
+                                            <Label Content="{Binding ID, Converter={StaticResource WeaponID2NameConverter}}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </TabItem>
+                    </TabControl>
                 </TabItem>
             </TabControl>
         </DockPanel>
