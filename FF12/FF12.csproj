@@ -186,6 +186,8 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AccessorieID2NameConverter.cs" />
+    <Compile Include="ArmmorID2NameConverter.cs" />
     <Compile Include="Charactor.cs" />
     <Compile Include="ChoiceWindow.xaml.cs">
       <DependentUpon>ChoiceWindow.xaml</DependentUpon>

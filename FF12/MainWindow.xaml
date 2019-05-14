@@ -164,6 +164,42 @@
                                 </ListBox.ItemTemplate>
                             </ListBox>
                         </TabItem>
+                        <TabItem Header="Armmor">
+                            <ListBox ItemsSource="{Binding Armmor}">
+                                <ListBox.Resources>
+                                    <local:ArmmorID2NameConverter x:Key="ArmmorID2NameConverter"/>
+                                </ListBox.Resources>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="Count :"/>
+                                            <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                            <Label Content=" Name :"/>
+                                            <Button Content="..." Click="ButtonChoiceArmmor_Click"/>
+                                            <Label Content="{Binding ID, Converter={StaticResource ArmmorID2NameConverter}}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </TabItem>
+                        <TabItem Header="Accessorie">
+                            <ListBox ItemsSource="{Binding Accessorie}">
+                                <ListBox.Resources>
+                                    <local:AccessorieID2NameConverter x:Key="AccessorieID2NameConverter"/>
+                                </ListBox.Resources>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="Count :"/>
+                                            <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                            <Label Content=" Name :"/>
+                                            <Button Content="..." Click="ButtonChoiceAccessorie_Click"/>
+                                            <Label Content="{Binding ID, Converter={StaticResource AccessorieID2NameConverter}}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </TabItem>
                     </TabControl>
                 </TabItem>
             </TabControl>

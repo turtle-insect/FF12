@@ -23,6 +23,8 @@ namespace FF12
 		{
 			eConsumable,
 			eWeapon,
+			eArmmor,
+			eAccessorie,
 		};
 		public uint ID { get; set; }
 		public eType Type { get; set; } = eType.eConsumable;
@@ -58,7 +60,20 @@ namespace FF12
 		{
 			ListBoxItem.Items.Clear();
 			var items = Info.Instance().Consumable;
-			if (Type == eType.eWeapon) items = Info.Instance().Weapon;
+			switch(Type)
+			{
+				case eType.eWeapon:
+					items = Info.Instance().Weapon;
+					break;
+
+				case eType.eArmmor:
+					items = Info.Instance().Armmor;
+					break;
+
+				case eType.eAccessorie:
+					items = Info.Instance().Accessorie;
+					break;
+			}
 
 			foreach (var item in items)
 			{

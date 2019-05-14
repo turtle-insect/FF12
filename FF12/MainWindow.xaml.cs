@@ -107,25 +107,29 @@ namespace FF12
 
 		private void ButtonChoiceConsumable_Click(object sender, RoutedEventArgs e)
 		{
-			Item item = (sender as Button)?.DataContext as Item;
-			if (item == null) return;
-			ChoiceWindow dlg = new ChoiceWindow();
-			dlg.ID = item.ID;
-			dlg.ShowDialog();
-
-			if (dlg.ID == item.ID) return;
-
-			item.Count = 0;
-			item.ID = dlg.ID;
-			item.Count = 1;
+			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eConsumable);
 		}
 
 		private void ButtonChoiceWeapon_Click(object sender, RoutedEventArgs e)
 		{
-			Item item = (sender as Button)?.DataContext as Item;
+			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eWeapon);
+		}
+
+		private void ButtonChoiceArmmor_Click(object sender, RoutedEventArgs e)
+		{
+			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eArmmor);
+		}
+
+		private void ButtonChoiceAccessorie_Click(object sender, RoutedEventArgs e)
+		{
+			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eAccessorie);
+		}
+
+		private void ItemChoice(Item item, ChoiceWindow.eType type)
+		{
 			if (item == null) return;
 			ChoiceWindow dlg = new ChoiceWindow();
-			dlg.Type = ChoiceWindow.eType.eWeapon;
+			dlg.Type = type;
 			dlg.ID = item.ID;
 			dlg.ShowDialog();
 

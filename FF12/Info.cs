@@ -8,6 +8,8 @@ namespace FF12
 		private static Info mThis;
 		public List<NameValueInfo> Consumable { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Weapon { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Armmor { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Accessorie { get; private set; } = new List<NameValueInfo>();
 
 		private Info() { }
 
@@ -40,6 +42,8 @@ namespace FF12
 		{
 			AppendList("info\\consumable.txt", Consumable);
 			AppendList("info\\weapon.txt", Weapon);
+			AppendList("info\\armmor.txt", Armmor);
+			AppendList("info\\accessorie.txt", Accessorie);
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)

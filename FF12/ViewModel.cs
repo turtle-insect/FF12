@@ -13,6 +13,8 @@ namespace FF12
 
 		public ObservableCollection<Item> Consumable { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<Item> Weapon { get; set; } = new ObservableCollection<Item>();
+		public ObservableCollection<Item> Armmor { get; set; } = new ObservableCollection<Item>();
+		public ObservableCollection<Item> Accessorie { get; set; } = new ObservableCollection<Item>();
 
 		public PlayTime PlayTime { get; set; } = new PlayTime();
 		public uint Gil
@@ -39,10 +41,17 @@ namespace FF12
 			{
 				Consumable.Add(new Item(0xDACC + i * 2, 0x6948, 0));
 			}
-
 			for(uint i = 0; i < 200; i++)
 			{
 				Weapon.Add(new Item(0xDB4C + i * 2, 0x69CA, 0x1001));
+			}
+			for (uint i = 0; i < 140; i++)
+			{
+				Armmor.Add(new Item(0xDCDC + i * 2, 0x6B58, 0x10C8));
+			}
+			for (uint i = 0; i < 120; i++)
+			{
+				Accessorie.Add(new Item(0xDDF4 + i * 2, 0x6C70, 0x1154));
 			}
 		}
 
@@ -61,6 +70,20 @@ namespace FF12
 				if (item.ID != 0xFFFF) count++;
 			}
 			SaveData.Instance().WriteNumber(0xE9BC, 4, count);
+
+			count = 0;
+			foreach (var item in Armmor)
+			{
+				if (item.ID != 0xFFFF) count++;
+			}
+			SaveData.Instance().WriteNumber(0xE9C0, 4, count);
+
+			count = 0;
+			foreach (var item in Accessorie)
+			{
+				if (item.ID != 0xFFFF) count++;
+			}
+			SaveData.Instance().WriteNumber(0xE9C4, 4, count);
 		}
 	}
 }
