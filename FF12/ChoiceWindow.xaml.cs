@@ -23,7 +23,7 @@ namespace FF12
 		{
 			eConsumable,
 			eWeapon,
-			eArmmor,
+			eArmor,
 			eAccessorie,
 		};
 		public uint ID { get; set; }
@@ -66,8 +66,8 @@ namespace FF12
 					items = Info.Instance().Weapon;
 					break;
 
-				case eType.eArmmor:
-					items = Info.Instance().Armmor;
+				case eType.eArmor:
+					items = Info.Instance().Armor;
 					break;
 
 				case eType.eAccessorie:

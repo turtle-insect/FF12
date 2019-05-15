@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:FF12"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <BitmapImage x:Key="Open" UriSource="./resource/Open.png"/>
+        <BitmapImage x:Key="Save" UriSource="./resource/Save.png"/>
     </Application.Resources>
 </Application>

@@ -27,6 +27,14 @@
                 </MenuItem>
                 <MenuItem Header="_About" Click="MenuItemAbout_Click"/>
             </Menu>
+            <ToolBar DockPanel.Dock="Top">
+                <Button Height="32" ToolTip="Open" Click="MenuItemFileOpen_Click">
+                    <Image Source="{StaticResource Open}"/>
+                </Button>
+                <Button Height="32" ToolTip="Save" Click="MenuItemFileSave_Click">
+                    <Image Source="{StaticResource Save}"/>
+                </Button>
+            </ToolBar>
             <TabControl>
                 <TabItem Header="Basic">
                     <Grid>
@@ -164,10 +172,10 @@
                                 </ListBox.ItemTemplate>
                             </ListBox>
                         </TabItem>
-                        <TabItem Header="Armmor">
-                            <ListBox ItemsSource="{Binding Armmor}">
+                        <TabItem Header="Armor">
+                            <ListBox ItemsSource="{Binding Armor}">
                                 <ListBox.Resources>
-                                    <local:ArmmorID2NameConverter x:Key="ArmmorID2NameConverter"/>
+                                    <local:ArmorID2NameConverter x:Key="ArmorID2NameConverter"/>
                                 </ListBox.Resources>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
@@ -175,8 +183,8 @@
                                             <Label Content="Count :"/>
                                             <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
                                             <Label Content=" Name :"/>
-                                            <Button Content="..." Click="ButtonChoiceArmmor_Click"/>
-                                            <Label Content="{Binding ID, Converter={StaticResource ArmmorID2NameConverter}}"/>
+                                            <Button Content="..." Click="ButtonChoiceArmor_Click"/>
+                                            <Label Content="{Binding ID, Converter={StaticResource ArmorID2NameConverter}}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>

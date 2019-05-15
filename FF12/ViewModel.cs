@@ -13,7 +13,7 @@ namespace FF12
 
 		public ObservableCollection<Item> Consumable { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<Item> Weapon { get; set; } = new ObservableCollection<Item>();
-		public ObservableCollection<Item> Armmor { get; set; } = new ObservableCollection<Item>();
+		public ObservableCollection<Item> Armor { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<Item> Accessorie { get; set; } = new ObservableCollection<Item>();
 
 		public PlayTime PlayTime { get; set; } = new PlayTime();
@@ -47,7 +47,7 @@ namespace FF12
 			}
 			for (uint i = 0; i < 140; i++)
 			{
-				Armmor.Add(new Item(0xDCDC + i * 2, 0x6B58, 0x10C8));
+				Armor.Add(new Item(0xDCDC + i * 2, 0x6B58, 0x10C8));
 			}
 			for (uint i = 0; i < 120; i++)
 			{
@@ -72,7 +72,7 @@ namespace FF12
 			SaveData.Instance().WriteNumber(0xE9BC, 4, count);
 
 			count = 0;
-			foreach (var item in Armmor)
+			foreach (var item in Armor)
 			{
 				if (item.ID != 0xFFFF) count++;
 			}

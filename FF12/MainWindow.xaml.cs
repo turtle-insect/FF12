@@ -37,10 +37,7 @@ namespace FF12
 			if (files == null) return;
 			if (!System.IO.File.Exists(files[0])) return;
 
-			if (SaveData.Instance().Open(files[0], false))
-			{
-				DataContext = new ViewModel();
-			}
+			Load(files[0], false);
 		}
 
 		private void MenuItemFileOpen_Click(object sender, RoutedEventArgs e)
@@ -58,10 +55,19 @@ namespace FF12
 			var dlg = new OpenFileDialog();
 			if (dlg.ShowDialog() == false) return;
 
-			if (SaveData.Instance().Open(dlg.FileName, force))
+			Load(dlg.FileName, force);
+		}
+
+		private void Load(String filename, bool force)
+		{
+			if (SaveData.Instance().Open(filename, force) == false)
 			{
-				DataContext = new ViewModel();
+				MessageBox.Show("fail");
+				return;
 			}
+
+			DataContext = new ViewModel();
+			MessageBox.Show("success");
 		}
 
 		private void MenuItemFileSave_Click(object sender, RoutedEventArgs e)
@@ -115,9 +121,9 @@ namespace FF12
 			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eWeapon);
 		}
 
-		private void ButtonChoiceArmmor_Click(object sender, RoutedEventArgs e)
+		private void ButtonChoiceArmor_Click(object sender, RoutedEventArgs e)
 		{
-			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eArmmor);
+			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eArmor);
 		}
 
 		private void ButtonChoiceAccessorie_Click(object sender, RoutedEventArgs e)

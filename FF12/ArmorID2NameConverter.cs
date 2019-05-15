@@ -8,11 +8,11 @@ using System.Windows.Data;
 
 namespace FF12
 {
-	class ArmmorID2NameConverter : IValueConverter
+	class ArmorID2NameConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return Info.Instance().Search(Info.Instance().Armmor, (uint)value)?.Name;
+			return Info.Instance().Search(Info.Instance().Armor, (uint)value)?.Name;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
