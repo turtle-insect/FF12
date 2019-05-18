@@ -197,9 +197,12 @@
     <Compile Include="ILineAnalysis.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Magic.cs" />
+    <Compile Include="MagicID2NameConverter.cs" />
     <Compile Include="NameValueInfo.cs" />
     <Compile Include="PlayTime.cs" />
     <Compile Include="SaveData.cs" />
+    <Compile Include="TechniqueID2NameConverter.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="WeaponID2NameConverter.cs" />

@@ -10,6 +10,8 @@ namespace FF12
 		public List<NameValueInfo> Weapon { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Armor { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Accessorie { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Magic { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Technique { get; private set; } = new List<NameValueInfo>();
 
 		private Info() { }
 
@@ -44,6 +46,8 @@ namespace FF12
 			AppendList("info\\weapon.txt", Weapon);
 			AppendList("info\\armor.txt", Armor);
 			AppendList("info\\accessorie.txt", Accessorie);
+			AppendList("info\\magic.txt", Magic);
+			AppendList("info\\technique.txt", Technique);
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)

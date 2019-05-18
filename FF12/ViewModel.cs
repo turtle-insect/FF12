@@ -15,6 +15,8 @@ namespace FF12
 		public ObservableCollection<Item> Weapon { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<Item> Armor { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<Item> Accessorie { get; set; } = new ObservableCollection<Item>();
+		public ObservableCollection<Magic> Magic { get; set; } = new ObservableCollection<Magic>();
+		public ObservableCollection<Item> Technique { get; set; } = new ObservableCollection<Item>();
 
 		public PlayTime PlayTime { get; set; } = new PlayTime();
 		public uint Gil
@@ -53,6 +55,14 @@ namespace FF12
 			{
 				Accessorie.Add(new Item(0xDDF4 + i * 2, 0x6C70, 0x1154));
 			}
+			for (uint i = 0; i < 24; i++)
+			{
+				Technique.Add(new Item(0xE0E4 + i * 2, 0x6C70, 0x1154));
+			}
+			for (uint i = 0; i < 81; i++)
+			{
+				Magic.Add(new Magic(i));
+			}
 		}
 
 		public void ItemCount()
@@ -84,6 +94,20 @@ namespace FF12
 				if (item.ID != 0xFFFF) count++;
 			}
 			SaveData.Instance().WriteNumber(0xE9C4, 4, count);
+
+			count = 0;
+			foreach (var item in Technique)
+			{
+				if (item.ID != 0xFFFF) count++;
+			}
+			SaveData.Instance().WriteNumber(0xE9D8, 4, count);
+
+			count = 0;
+			foreach (var item in Magic)
+			{
+				if (item.ID != 0xFFFF) count++;
+			}
+			SaveData.Instance().WriteNumber(0xE9DC, 4, count);
 		}
 	}
 }

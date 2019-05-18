@@ -210,6 +210,22 @@
                         </TabItem>
                     </TabControl>
                 </TabItem>
+                <TabItem Header="Magic">
+                    <ListBox ItemsSource="{Binding Magic}">
+                        <ListBox.Resources>
+                            <local:MagicID2NameConverter x:Key="MagicID2NameConverter"/>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content=" Name :"/>
+                                    <Button Content="..." Click="ButtonChoiceMagic_Click"/>
+                                    <Label Content="{Binding ID, Converter={StaticResource MagicID2NameConverter}}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
             </TabControl>
         </DockPanel>
     </Grid>

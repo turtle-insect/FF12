@@ -131,6 +131,27 @@ namespace FF12
 			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eAccessorie);
 		}
 
+		private void ButtonChoiceMagic_Click(object sender, RoutedEventArgs e)
+		{
+			Magic magic = (sender as Button)?.DataContext as Magic;
+
+			ChoiceWindow dlg = new ChoiceWindow();
+			dlg.Type = ChoiceWindow.eType.eMagic;
+			dlg.ID = magic.ID;
+			dlg.ShowDialog();
+
+			if (dlg.ID == magic.ID) return;
+
+			magic.Learning = false;
+			magic.ID = dlg.ID;
+			magic.Learning = true;
+		}
+
+		private void ButtonChoiceTechnique_Click(object sender, RoutedEventArgs e)
+		{
+			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eTechnique);
+		}
+
 		private void ItemChoice(Item item, ChoiceWindow.eType type)
 		{
 			if (item == null) return;

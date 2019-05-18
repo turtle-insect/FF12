@@ -25,6 +25,8 @@ namespace FF12
 			eWeapon,
 			eArmor,
 			eAccessorie,
+			eMagic,
+			eTechnique,
 		};
 		public uint ID { get; set; }
 		public eType Type { get; set; } = eType.eConsumable;
@@ -72,6 +74,14 @@ namespace FF12
 
 				case eType.eAccessorie:
 					items = Info.Instance().Accessorie;
+					break;
+
+				case eType.eMagic:
+					items = Info.Instance().Magic;
+					break;
+
+				case eType.eTechnique:
+					items = Info.Instance().Technique;
 					break;
 			}
 
