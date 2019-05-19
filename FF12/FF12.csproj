@@ -202,6 +202,7 @@
     <Compile Include="NameValueInfo.cs" />
     <Compile Include="PlayTime.cs" />
     <Compile Include="SaveData.cs" />
+    <Compile Include="Technique.cs" />
     <Compile Include="TechniqueID2NameConverter.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="ViewModel.cs" />

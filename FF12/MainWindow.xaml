@@ -226,6 +226,22 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </TabItem>
+                <TabItem Header="Technique">
+                    <ListBox ItemsSource="{Binding Technique}">
+                        <ListBox.Resources>
+                            <local:TechniqueID2NameConverter x:Key="TechniqueID2NameConverter"/>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content=" Name :"/>
+                                    <Button Content="..." Click="ButtonChoiceTechnique_Click"/>
+                                    <Label Content="{Binding ID, Converter={StaticResource TechniqueID2NameConverter}}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
             </TabControl>
         </DockPanel>
     </Grid>

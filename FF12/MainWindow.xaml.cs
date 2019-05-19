@@ -149,7 +149,18 @@ namespace FF12
 
 		private void ButtonChoiceTechnique_Click(object sender, RoutedEventArgs e)
 		{
-			ItemChoice((sender as Button)?.DataContext as Item, ChoiceWindow.eType.eTechnique);
+			Technique technique = (sender as Button)?.DataContext as Technique;
+
+			ChoiceWindow dlg = new ChoiceWindow();
+			dlg.Type = ChoiceWindow.eType.eTechnique;
+			dlg.ID = technique.ID;
+			dlg.ShowDialog();
+
+			if (dlg.ID == technique.ID) return;
+
+			technique.Learning = false;
+			technique.ID = dlg.ID;
+			technique.Learning = true;
 		}
 
 		private void ItemChoice(Item item, ChoiceWindow.eType type)
