@@ -200,6 +200,7 @@
     <Compile Include="Magic.cs" />
     <Compile Include="MagicID2NameConverter.cs" />
     <Compile Include="NameValueInfo.cs" />
+    <Compile Include="Par.cs" />
     <Compile Include="PlayTime.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Technique.cs" />

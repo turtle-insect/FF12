@@ -242,6 +242,12 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </TabItem>
+                <TabItem Header="PAR">
+                    <DockPanel>
+                        <Button DockPanel.Dock="Bottom" Content="Run"/>
+                        <TextBox AcceptsReturn="True"/>
+                    </DockPanel>
+                </TabItem>
             </TabControl>
         </DockPanel>
     </Grid>
