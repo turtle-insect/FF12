@@ -7,7 +7,7 @@
 Switch FF12のセーブデータ編集Tool
 
 # ソフト
-http://www.jp.square-enix.com/ff12_tza/
+http://www.jp.square-enix.com/ff12_tza/  
 https://finalfantasyxii.square-enix-games.com/home/?lang=us
 
 # 実行に必要
