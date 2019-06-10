@@ -33,10 +33,10 @@ namespace FF12
 
 		public ViewModel()
 		{
-			String[] names = { "VAAN", "PENELO", "BALTHIER", "FRAN", "BASCH", "ASHE" };
+			String[] names = { "VAAN", "ASHE", "FRAN", "BALTHIER", "BASCH", "PENELO" };
 			for(uint i = 0; i < names.Length; i++)
 			{
-				Party.Add(new Charactor(0x2210 + i * 2280, names[i]));
+				Party.Add(new Charactor(0x2210 + i * 456, names[i]));
 			}
 
 			for(uint i = 0; i < 64; i++)
